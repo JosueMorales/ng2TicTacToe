@@ -15,23 +15,31 @@ export class Board{
     winner:any;
     draw: any;
     currentPlayer:boolean; //true = X and false = O
-    private _currentPlayerLabel:string;
     size:number = 3;
+    status : boolean;
 
     get currentPlayerLabel() : string {
-         if(this.currentPlayer)
-        return 'X';
-      //  return '<img sp
-        return 'O';
-        //return '<img src="app/images/ic_O.svg" alt="O">';
+        if(this.currentPlayer)
+            return 'X';      
+            return 'O';
     }
     start(){
         this.board = [];
+        for(let i = 0; i<this.size; i++){
+            let elem = [];
+            for(let j = 0; j<this.size; j++){
+                elem.push(null);
+            }
+            this.board.push(elem);
+        }
         this.winner = false;
         this.draw = false;
         this.currentPlayer = true;
+        this.status = true;
     }
     play(x:number, y:number, currentPlayer:boolean){
+        if(!this.status) return;
+        console.log("("+x+","+y+")"+currentPlayer);
         if(currentPlayer)
             this.board[x][y] = 'X';
         else
@@ -46,7 +54,8 @@ export class Board{
             for(let y=0; y<size; y++){
                 match = true;
                 for(let x=0; x<size; x++){
-                    if(this.board[x][y] !== this.board[0][y]){
+                    
+                    if(!this.board[x][y] || (this.board[x][y] !== this.board[0][y])){
                         match = false;
                         break;
                     }
@@ -60,7 +69,7 @@ export class Board{
             for(let x=0; x<size; x++){
                 match = true;
                 for(let y=0; y<size; y++){
-                    if(this.board[x][y] !== this.board[x][0]){
+                    if(!this.board[x][y] || (this.board[x][y] !== this.board[x][0])){
                         match = false;
                         break;
                     }
@@ -72,14 +81,14 @@ export class Board{
         let xMatch = () =>{
             let match = true;
             for(let i=0; i<size; i++){
-                if(this.board[i][i] !== this.board[0][0]){
+                if(!this.board[i][i]  || (this.board[i][i] !== this.board[0][0])){
                     match = false;
                     break;
                 }
             }
             if(match) return true;
             for(let i=0; i<size; i++){
-                if(this.board[i][(size-1) - i] !== this.board[0][size-1])
+                if(!this.board[i][(size-1) - i]  || (this.board[i][(size-1) - i] !== this.board[0][size-1]))
                     return false;
             }
             return true;
@@ -89,9 +98,11 @@ export class Board{
         };
 
         if(vMatch() || hMatch() || xMatch()){
-            this.winner.winner = this.currentPlayerLabel;
+            this.winner = {player : this.currentPlayerLabel};
+            this.status = false;
         }else if(draw()){
             this.draw = true;
+            this.status = false;
         }
 
     }

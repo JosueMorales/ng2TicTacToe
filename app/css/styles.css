@@ -1,0 +1,15 @@
+.t-board-cell{
+    width: 70px;
+    height: 70px;
+    background-color: ghostwhite; 
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    position: relative;
+    float: left;
+    transition: all ease-in .1s;
+}
+.t-board{
+    width: 50%;
+    margin: 0 auto 0 auto;
+}
