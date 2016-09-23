@@ -10,6 +10,9 @@
   "bugs": {
     "url": "https://github.com/JosueMorales/ng2TicTacToe/issues"
   },
+  "engines": {
+    "node": "5.9.1"
+  },
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "http-server",
