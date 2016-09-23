@@ -20,12 +20,8 @@ export class Board{
 
     get currentPlayerLabel() : string {
         if(this.currentPlayer)
-        return 'X';
-        return 'O';
-        /*
-            return '<img src="app/img/X.svg" alt="X">';
-            return '<img src="app/img/O.svg" alt="O">';
-        */
+        return 'Robot';
+        return 'Cowboy';
     }
     boardValue(x:number, y:number) : string{
         let boardVal = "";
