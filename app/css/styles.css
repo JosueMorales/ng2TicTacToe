@@ -18,12 +18,15 @@
     border-style: solid;
     float: left;
 }
-
 body{
+    margin: 0;
+}
+.container{
     background-image: url("../img/jungle_bg.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     font-family: 'Baloo Bhai', cursive;
+    height: 100%;
 }
 .character-X{
     background-image: url("../img/character_X.png");
