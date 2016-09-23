@@ -20,8 +20,23 @@ export class Board{
 
     get currentPlayerLabel() : string {
         if(this.currentPlayer)
-            return 'X';      
-            return 'O';
+        return 'X';
+        return 'O';
+        /*
+            return '<img src="app/img/X.svg" alt="X">';
+            return '<img src="app/img/O.svg" alt="O">';
+        */
+    }
+    boardValue(x:number, y:number) : string{
+        let boardVal = "";
+        let val = this.board[x][y];
+        if(val === "X"){
+            boardVal = '<img src="app/img/X.svg" alt="X" class="t-board-value">';
+        }else if(val === "O"){
+            boardVal ='<img src="app/img/O.svg" alt="O" class="t-board-value">';
+        }
+        return boardVal;
+
     }
     start(){
         this.board = [];
@@ -98,7 +113,7 @@ export class Board{
         };
 
         if(vMatch() || hMatch() || xMatch()){
-            this.winner = {player : this.currentPlayerLabel};
+            this.winner = {label : this.currentPlayerLabel, player: this.currentPlayer};
             this.status = false;
         }else if(draw()){
             this.draw = true;

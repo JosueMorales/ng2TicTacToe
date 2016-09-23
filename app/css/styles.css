@@ -1,3 +1,14 @@
+.t-board{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-direction: column;
+}
+.t-board-row{
+        margin: 0 auto;
+}
 .t-board-cell{
     width: 70px;
     height: 70px;
@@ -5,11 +16,127 @@
     border-width: 2px;
     border-color: black;
     border-style: solid;
-    position: relative;
     float: left;
-    transition: all ease-in .1s;
 }
-.t-board{
-    width: 50%;
-    margin: 0 auto 0 auto;
+
+body{
+    background-image: url("../img/jungle_bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: 'Baloo Bhai', cursive;
+}
+.character-X{
+    background-image: url("../img/character_X.png");
+    width: 20%;
+    height: 40%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    bottom: 12%;
+    left: 0%;
+}
+.character-X-dead{
+    background-image: url("../img/character_X_dead.png");
+    width: 20%;
+    height: 40%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    bottom: 9%;
+    left: 0%;
+}
+.character-X-idle{
+    background-image: url("../img/character_X_idle.png");
+    width: 20%;
+    height: 40%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    bottom: 12%;
+    left: 0%;
+}
+.character-O{
+    background-image: url("../img/character_O.png");
+    width: 15%;
+    height: 36%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    bottom: 15%;
+    right: 10%;
+}
+.character-O-dead{
+    background-image: url("../img/character_O_dead.png");
+    width: 20%;
+    height: 40%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+}
+.character-O-idle{
+    background-image: url("../img/character_O_idle.png");
+    width: 20%;
+    height: 36%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    bottom: 16%;
+    right: -2%;
+}
+.t-board-value{
+        width: 100%;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+.t-board-controls{
+    margin: 35px auto;
+    text-align: center;
+    color: #ffffff;
+    font-size: 25px;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: rgba(222, 30, 44, 0.66);
+    border-color: #7958de;
+    width: 150px;
+}
+.form-control {
+    height: 34px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    text-align: center;
+    font-size: 25px;
 }

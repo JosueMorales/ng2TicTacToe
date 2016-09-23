@@ -1,15 +1,23 @@
 <h2 *ngIf="status" class="cur-player">It's <span [innerHtml]="currentPlayerLabel"></span> Turn</h2>
-<h2 *ngIf="winner" class="winner-player">Congratulations, <span [innerHTML]="winner.player"></span> wins!</h2>
+<h2 *ngIf="winner" class="winner-player">Congratulations, <span [innerHTML]="winner.label"></span> wins!</h2>
 <h2 *ngIf="draw" class="draw">DRAW!!</h2>
 <div class="t-board">
-    <div class="row t-board-row" *ngFor="let row of board; let i=index">
-        <div class="t-board-cell" *ngFor="let col of row; let j=index" [innerHtml]="board[i][j]" (click)="play(i,j,currentPlayer)">
-
+    <div class="t-board-row" *ngFor="let row of board; let i=index">
+        <div class="t-board-cell" *ngFor="let col of row; let j=index" [innerHtml]="boardValue(i,j)" (click)="play(i,j,currentPlayer)">
         </div>
     </div>
 </div>
+<div class="t-board-characters">
+    <div *ngIf="draw || (!winner && !currentPlayer)" class="character-X-idle"></div>
+    <div *ngIf="(winner && winner.player) || (!draw && !winner && currentPlayer)" class="character-X"></div>
+    <div *ngIf="winner && !winner.player" class="character-X-dead"></div>
+
+    <div *ngIf="draw || (!winner && currentPlayer)" class="character-O-idle"></div>
+    <div *ngIf="(winner && !winner.player) || (!draw && !winner && !currentPlayer)" class="character-O"></div>
+    <div *ngIf="winner && winner.player" class="character-O-dead"></div>
+</div>
 <div class="t-board-controls" *ngIf="!status">
-    <label for="size">Size</label> <input type="number" min="3" max="10" [(ngModel)]="size"  name="size"/>
-    <button class="btn-play-again"  (click)="start()">PLAY AGAIN</button>
+    <label for="size">Size</label> <input type="number" class="form-control" min="3" max="10" [(ngModel)]="size"  name="size"/><br/>
+    <button class="btn-play-again btn"  (click)="start()">PLAY AGAIN</button>
 </div>
 
