@@ -49,7 +49,7 @@ export class Board{
         this.status = true;
     }
     play(x:number, y:number, currentPlayer:boolean){
-        if(!this.status) return;
+        if(!this.status || this.board[x][y] !== null) return;
         console.log("("+x+","+y+")"+currentPlayer);
         if(currentPlayer)
             this.board[x][y] = 'X';
